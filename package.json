@@ -1,0 +1,8 @@
+{
+  "name": "aum-jewellers",
+  "version": "1.0.0",
+  "description": "Ultra-premium jewellery website",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
