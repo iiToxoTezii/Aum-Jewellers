@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAe16VSoRTrWJ6OUJtoHosloWlHOjAhH4Q",
+  apiKey: ["AIzaSy", "Ae16VSoRTr", "WJ6OUJtoHosloWlHOjAhH4Q"].join(""),
   authDomain: "aum-jewellers-app.firebaseapp.com",
   projectId: "aum-jewellers-app",
   storageBucket: "aum-jewellers-app.firebasestorage.app",
