@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: ["AIzaSy", "Ae16VSoRTr", "WJ6OUJtoHosloWlHOjAhH4Q"].join(""),
@@ -114,10 +114,30 @@ document.addEventListener('DOMContentLoaded', () => {
         await signInWithEmailAndPassword(auth, email, password);
         hideLoginModal();
       } catch (error) {
-        loginError.textContent = error.message;
+        console.error("Auth Error:", error);
+        loginError.textContent = 'Invalid email or password. Please try again.';
       } finally {
         loginSubmitBtn.textContent = 'Sign In';
         loginSubmitBtn.disabled = false;
+      }
+    });
+  }
+
+  // Handle Google Login
+  const googleBtn = document.getElementById('login-google-btn');
+  if (googleBtn) {
+    googleBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      loginError.textContent = '';
+      
+      const provider = new GoogleAuthProvider();
+      try {
+        await setPersistence(auth, browserLocalPersistence);
+        await signInWithPopup(auth, provider);
+        hideLoginModal();
+      } catch (error) {
+        console.error("Google Auth Error:", error);
+        loginError.textContent = 'Google sign in failed. Please try again.';
       }
     });
   }
