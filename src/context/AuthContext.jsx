@@ -35,13 +35,25 @@ export const AuthProvider = ({ children }) => {
       try {
         const fullUrl = window.location.href;
         const matchGoogle = /[?&]googleToken=([^&#]*)/.exec(fullUrl);
+        const matchSso = /[?&]ssoAuth=([^&#]*)/.exec(fullUrl);
+
         if (matchGoogle) {
           ssoProcessed = true;
           const googleToken = decodeURIComponent(matchGoogle[1]);
           const credential = GoogleAuthProvider.credential(googleToken);
           await signInWithCredential(auth, credential);
-          // Clean URL parameter
           let cleanUrl = fullUrl.replace(/[?&]googleToken=[^&#]*/, '');
+          cleanUrl = cleanUrl.replace(/\?#/, '#').replace(/\?$/, '');
+          window.history.replaceState(null, '', cleanUrl);
+        } else if (matchSso) {
+          ssoProcessed = true;
+          const raw = atob(decodeURIComponent(matchSso[1]));
+          const [email, password] = raw.split(':::');
+          if (email && password) {
+            await setPersistence(auth, browserLocalPersistence);
+            await signInWithEmailAndPassword(auth, email, password);
+          }
+          let cleanUrl = fullUrl.replace(/[?&]ssoAuth=[^&#]*/, '');
           cleanUrl = cleanUrl.replace(/\?#/, '#').replace(/\?$/, '');
           window.history.replaceState(null, '', cleanUrl);
         }
