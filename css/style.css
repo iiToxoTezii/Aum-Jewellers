@@ -1078,15 +1078,18 @@ em {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 350px;
+    width: 85%;
+    max-width: 320px;
     height: 100vh;
     background: var(--color-bg-dark);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2.5rem;
+    padding: 6rem 1.5rem 3rem;
+    gap: 1.5rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 99;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
@@ -1111,30 +1114,23 @@ em {
     transform: translateX(0);
   }
 
-  .nav-links li:nth-child(1) {
-    transition-delay: 0.1s;
-  }
-
-  .nav-links li:nth-child(2) {
-    transition-delay: 0.2s;
-  }
-
-  .nav-links li:nth-child(3) {
-    transition-delay: 0.3s;
-  }
-
-  .nav-links li:nth-child(4) {
-    transition-delay: 0.4s;
-  }
+  .nav-links li:nth-child(1) { transition-delay: 0.05s; }
+  .nav-links li:nth-child(2) { transition-delay: 0.10s; }
+  .nav-links li:nth-child(3) { transition-delay: 0.15s; }
+  .nav-links li:nth-child(4) { transition-delay: 0.20s; }
+  .nav-links li:nth-child(5) { transition-delay: 0.25s; }
+  .nav-links li:nth-child(6) { transition-delay: 0.30s; }
+  .nav-links li:nth-child(7) { transition-delay: 0.35s; }
 
   .nav-links a {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: 0.1em;
+    padding: 0.3rem 0;
+    display: inline-block;
   }
 
   .navbar .btn {
     display: none;
-    /* Hide button on mobile inside navbar, we'll put it in the side menu if needed */
   }
 
   .menu-toggle {

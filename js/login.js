@@ -19,18 +19,27 @@ let loginForm = null;
 let loginError = null;
 let loginSubmitBtn = null;
 
+function getDashboardUrl(param = '') {
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const base = isLocal ? 'http://localhost:5173/#/sip' : 'https://aum-jewellers-app.web.app/#/sip';
+  return param ? `${base}?${param}` : base;
+}
+
 function showLoginModal(e) {
   if (e) e.preventDefault();
   if (loginModal) {
     loginModal.classList.add('active');
+  } else {
+    // If no modal on page, navigate directly to dashboard login
+    window.location.href = getDashboardUrl();
   }
 }
 
 function hideLoginModal() {
   if (loginModal) {
     loginModal.classList.remove('active');
-    loginError.textContent = '';
-    loginForm.reset();
+    if (loginError) loginError.textContent = '';
+    if (loginForm) loginForm.reset();
   }
 }
 
@@ -38,8 +47,12 @@ function updateUIForLogin(user) {
   // Hide Login buttons (mobile and desktop)
   document.querySelectorAll('.login-btn-nav').forEach(el => el.style.display = 'none');
   
-  // Show Dashboard links
-  document.querySelectorAll('.dashboard-link-nav').forEach(el => el.style.display = '');
+  // Show Dashboard links & set correct URL
+  document.querySelectorAll('.dashboard-link-nav').forEach(el => {
+    el.style.display = '';
+    const anchor = el.tagName === 'A' ? el : el.querySelector('a');
+    if (anchor) anchor.href = getDashboardUrl();
+  });
 
   // Show Logout links
   document.querySelectorAll('.logout-btn-nav').forEach(el => el.style.display = '');
@@ -47,6 +60,8 @@ function updateUIForLogin(user) {
   // Update profile icons
   document.querySelectorAll('.profile-icon-nav').forEach(el => {
     el.style.display = 'flex';
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    el.href = isLocal ? 'http://localhost:5173/#/profile' : 'https://aum-jewellers-app.web.app/#/profile';
     if (user.photoURL) {
       el.innerHTML = `<img src="${user.photoURL}" alt="Profile" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
     } else {
@@ -59,8 +74,12 @@ function updateUIForLogout() {
   // Show Login buttons
   document.querySelectorAll('.login-btn-nav').forEach(el => el.style.display = '');
   
-  // Hide Dashboard links
-  document.querySelectorAll('.dashboard-link-nav').forEach(el => el.style.display = 'none');
+  // Keep Dashboard links visible & set correct URL
+  document.querySelectorAll('.dashboard-link-nav').forEach(el => {
+    el.style.display = '';
+    const anchor = el.tagName === 'A' ? el : el.querySelector('a');
+    if (anchor) anchor.href = getDashboardUrl();
+  });
 
   // Hide Logout links
   document.querySelectorAll('.logout-btn-nav').forEach(el => el.style.display = 'none');
@@ -71,8 +90,6 @@ function updateUIForLogout() {
 
 document.addEventListener('DOMContentLoaded', () => {
   loginModal = document.getElementById('login-modal');
-  if (!loginModal) return; // Modal not on this page
-
   loginForm = document.getElementById('login-form');
   loginError = document.getElementById('login-error');
   loginSubmitBtn = document.getElementById('login-submit-btn');
@@ -81,11 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBtn) closeBtn.addEventListener('click', hideLoginModal);
 
   // Close on outside click
-  loginModal.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-      hideLoginModal();
-    }
-  });
+  if (loginModal) {
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        hideLoginModal();
+      }
+    });
+  }
 
   // Attach login button listeners
   document.querySelectorAll('.login-btn-nav').forEach(btn => {
@@ -113,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
         await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
         hideLoginModal();
+        // Redirect to dashboard application
+        window.location.href = getDashboardUrl(`email=${encodeURIComponent(email)}`);
       } catch (error) {
         console.error("Auth Error:", error);
         loginError.textContent = 'Invalid email or password. Please try again.';
@@ -133,8 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const provider = new GoogleAuthProvider();
       try {
         await setPersistence(auth, browserLocalPersistence);
-        await signInWithPopup(auth, provider);
+        const result = await signInWithPopup(auth, provider);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const googleToken = credential?.idToken || result._tokenResponse?.idToken;
+
         hideLoginModal();
+        
+        if (googleToken) {
+          window.location.href = getDashboardUrl(`googleToken=${encodeURIComponent(googleToken)}`);
+        } else {
+          window.location.href = getDashboardUrl();
+        }
       } catch (error) {
         console.error("Google Auth Error:", error);
         loginError.textContent = 'Google sign in failed. Please try again.';
