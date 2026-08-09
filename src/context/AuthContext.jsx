@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     let unsubscribeDoc = null;
 
     let ssoProcessed = false;
+    const hasSsoToken = /[?&](googleToken|ssoAuth)=/.test(window.location.href);
 
     // Check for SSO handoff tokens in URL
     const checkSsoTokens = async () => {
@@ -64,8 +65,9 @@ export const AuthProvider = ({ children }) => {
 
     // Subscribe to Firebase Auth state
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
-      if (!user && !ssoProcessed) {
+      if (!user && !ssoProcessed && hasSsoToken) {
         await checkSsoTokens();
+        return; // Keep loading=true until second onAuthStateChanged event fires with logged-in user!
       }
 
       setCurrentUser(user);
