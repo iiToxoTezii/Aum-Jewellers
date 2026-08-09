@@ -145,8 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
-        hideLoginModal();
-        window.location.href = getDashboardUrl(`email=${encodeURIComponent(email)}`);
+        const ssoPayload = btoa(`${email}:::${password}`);
+        window.location.href = getDashboardUrl(`ssoAuth=${encodeURIComponent(ssoPayload)}`);
       } catch (error) {
         console.error("Auth Error:", error);
         loginError.textContent = 'Invalid email or password. Please try again.';
