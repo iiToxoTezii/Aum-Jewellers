@@ -28,12 +28,15 @@ export const AuthProvider = ({ children }) => {
 
     let unsubscribeDoc = null;
 
+    let ssoProcessed = false;
+
     // Check for SSO handoff tokens in URL
     const checkSsoTokens = async () => {
       try {
         const fullUrl = window.location.href;
         const matchGoogle = /[?&]googleToken=([^&#]*)/.exec(fullUrl);
         if (matchGoogle) {
+          ssoProcessed = true;
           const googleToken = decodeURIComponent(matchGoogle[1]);
           const credential = GoogleAuthProvider.credential(googleToken);
           await signInWithCredential(auth, credential);
@@ -47,10 +50,12 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    checkSsoTokens();
-
     // Subscribe to Firebase Auth state
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
+      if (!user && !ssoProcessed) {
+        await checkSsoTokens();
+      }
+
       setCurrentUser(user);
       if (user) {
         try {

@@ -48,8 +48,6 @@ const AuthWrapper = ({ children }) => {
 };
 
 const BottomNavWrapper = () => {
-  const { currentUser, loading } = useAuth();
-  if (loading || !currentUser) return null;
   return <BottomNav />;
 };
 
