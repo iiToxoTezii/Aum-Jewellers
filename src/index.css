@@ -327,6 +327,12 @@ label {
   }
 }
 
+@media (max-width: 768px) {
+  .main-content {
+    padding-bottom: 85px !important;
+  }
+}
+
 .nav-item {
   display: flex;
   flex-direction: column;

@@ -26,14 +26,31 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import ForceUpdate from './components/ForceUpdate';
 
 const AuthWrapper = ({ children }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, loading } = useAuth();
   const location = useLocation();
+
+  if (loading) {
+    return (
+      <div className="home-view flex items-center justify-center min-h-[70vh]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
+          <span className="text-xs uppercase tracking-widest text-gold opacity-80">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   if (!currentUser && location.pathname !== '/profile' && location.pathname !== '/privacy-policy') {
     return <Profile />;
   }
 
   return children;
+};
+
+const BottomNavWrapper = () => {
+  const { currentUser, loading } = useAuth();
+  if (loading || !currentUser) return null;
+  return <BottomNav />;
 };
 
 const HardwareBackButton = () => {
@@ -45,10 +62,8 @@ const HardwareBackButton = () => {
 
     const handleBackButton = CapacitorApp.addListener('backButton', ({ canGoBack }) => {
       if (location.pathname === '/' || location.pathname === '/profile') {
-        // Exit app if we are at the root or profile tab
         CapacitorApp.exitApp();
       } else {
-        // Otherwise navigate back
         navigate(-1);
       }
     });
@@ -100,7 +115,7 @@ function App() {
           adId: 'ca-app-pub-6475155816196963/6137133129',
           adSize: BannerAdSize.BANNER,
           position: BannerAdPosition.BOTTOM_CENTER,
-          margin: 65, // Push it up above the bottom nav
+          margin: 65,
           isTesting: false
         });
       } catch (e) {
@@ -171,7 +186,7 @@ function App() {
             </Routes>
           </AuthWrapper>
         </main>
-        <BottomNav />
+        <BottomNavWrapper />
         
         {/* Floating WhatsApp Button */}
         <a 
