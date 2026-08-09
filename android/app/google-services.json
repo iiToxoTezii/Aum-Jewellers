@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "468732933333",
+    "project_id": "aum-jewellers-app",
+    "storage_bucket": "aum-jewellers-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468732933333:android:262eeef8fae8a3f0381e5c",
+        "android_client_info": {
+          "package_name": "com.aumjewellers.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468732933333-rvvu2nd0srkt7a4evra0l5mren148lrc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aumjewellers.app",
+            "certificate_hash": "10d131f72aa68e8636329d8f870c004c766dfa63"
+          }
+        },
+        {
+          "client_id": "468732933333-u1d3ba7i958f66gu5q1p9i1hcphf0bma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aumjewellers.app",
+            "certificate_hash": "ac345797eff8ef94cfd9b3723434af5666499e0f"
+          }
+        },
+        {
+          "client_id": "468732933333-6tn3hb1skl91t9g18cmdgdp7r4s63jub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcq-PTSx3UEDICwOTFrq374dXOhZskKyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468732933333-6tn3hb1skl91t9g18cmdgdp7r4s63jub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

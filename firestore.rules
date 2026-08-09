@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Admins can read and write everything
+    match /{document=**} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // Users can read and write their own profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Clients can read ONLY their own SIP records folder
+    match /clients/{email}/sip_records/{recordId} {
+      allow read: if request.auth != null && request.auth.token.email.lower() == email;
+    }
+
+    // Enquiries are public to write
+    match /enquiries/{enquiryId} {
+      allow write: if true;
+    }
+
+    // Collections are public to read
+    match /collections/{collectionId} {
+      allow read: if true;
+    }
+  }
+}

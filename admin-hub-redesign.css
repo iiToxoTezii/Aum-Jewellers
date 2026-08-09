@@ -1,0 +1,109 @@
+
+/* --- Admin Hub Redesign --- */
+
+.admin-dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 5rem; /* to clear navbar */
+}
+
+.admin-sidebar {
+  width: 280px;
+  background-color: rgba(10, 10, 10, 0.95);
+  border-right: 1px solid rgba(199, 154, 107, 0.2);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: fixed;
+  top: 5rem;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+}
+
+.admin-main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(199, 154, 107, 0.2);
+    padding: 1rem;
+    height: auto;
+  }
+  .admin-main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+.admin-sidebar-tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.admin-sidebar-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.admin-sidebar-tab.active {
+  background: rgba(199, 154, 107, 0.1);
+  border: 1px solid rgba(199, 154, 107, 0.3);
+  color: var(--color-gold);
+  box-shadow: 0 0 15px rgba(199, 154, 107, 0.05) inset;
+}
+
+.admin-glass-card {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(199, 154, 107, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+.admin-glass-card:hover {
+  border-color: rgba(199, 154, 107, 0.3);
+}
+
+.admin-metric-value {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: white;
+  margin: 0.5rem 0;
+  text-shadow: 0 0 20px rgba(199, 154, 107, 0.3);
+}
+
+.admin-metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  opacity: 0.8;
+}

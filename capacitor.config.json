@@ -1,0 +1,32 @@
+{
+  "appId": "com.aumjewellers.app",
+  "appName": "Aum Jewellers",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "hostname": "localhost"
+  },
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com"],
+      "serverClientId": "468732933333-6tn3hb1skl91t9g18cmdgdp7r4s63jub.apps.googleusercontent.com"
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "launchAutoHide": true,
+      "backgroundColor": "#333728",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "FIT_CENTER",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "AdMob": {
+      "appId": "ca-app-pub-6475155816196963~1543281996"
+    }
+  }
+}
