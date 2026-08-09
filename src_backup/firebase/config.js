@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, setPersistence, browserLocalPersistence } from "firebase/auth";
-import { initializeFirestore, persistentLocalCache, persistentSingleTabManager } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: ["AIzaSy", "Ae16VSoRTr", "WJ6OUJtoHosloWlHOjAhH4Q"].join(""),
+  apiKey: "AIzaSyAe16VSoRTrWJ6OUJtoHosloWlHOjAhH4Q",
   authDomain: "aum-jewellers-app.firebaseapp.com",
   projectId: "aum-jewellers-app",
   storageBucket: "aum-jewellers-app.firebasestorage.app",
@@ -22,9 +22,7 @@ export let isFirebaseOffline = false;
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
-  db = initializeFirestore(app, {
-    localCache: persistentLocalCache({tabManager: persistentSingleTabManager()})
-  });
+  db = getFirestore(app);
   storage = getStorage(app);
   
   // Set persistence to local (survives app restarts)
@@ -44,7 +42,6 @@ try {
   storage = {};
 }
 
-export { app, auth, db, storage };
+export { auth, db, storage };
 export const googleProvider = new GoogleAuthProvider();
-googleProvider.setCustomParameters({ prompt: 'select_account' });
 export const facebookProvider = new FacebookAuthProvider();

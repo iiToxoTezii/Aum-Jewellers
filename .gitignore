@@ -30,6 +30,8 @@ dist-ssr
 .firebase/
 build_error.txt
 build_output.txt
-Aum Jewellers/
-src_backup/
+# Secret files
+google-services.json
+**/google-services.json
+
 

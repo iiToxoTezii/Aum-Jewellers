@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aum Jewellers | Fine Gold, Diamond & Custom Bridal Jewellery</title>
+  <meta name="description"
+    content="Discover Aum Jewellers, your trusted destination for exquisite luxury jewellery. Explore our exclusive collections of pure gold, brilliant diamond, elegant silver, and bespoke bridal trousseau pieces crafted with timeless artistry.">
+  <meta name="keywords"
+    content="luxury jewellery, gold jewellery, silver jewellery, diamond solitaires, bridal trousseau, custom jewellery design, Aum Jewellers, exquisite gems, handcrafted jewelry">
+  <meta name="author" content="Aum Jewellers">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aumjewellers.com/">
+  <meta property="og:title" content="Aum Jewellers | Fine Gold, Diamond & Custom Bridal Jewellery">
+  <meta property="og:description"
+    content="Discover Aum Jewellers, your trusted destination for exquisite luxury jewellery. Explore our exclusive collections of pure gold, brilliant diamond, elegant silver, and bespoke bridal trousseau pieces crafted with timeless artistry.">
+  <meta property="og:image" content="https://aumjewellers.com/images/hero/indian_hero.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aumjewellers.com/">
+  <meta property="twitter:title" content="Aum Jewellers | Fine Gold, Diamond & Custom Bridal Jewellery">
+  <meta property="twitter:description"
+    content="Discover Aum Jewellers, your trusted destination for exquisite luxury jewellery. Explore our exclusive collections of pure gold, brilliant diamond, elegant silver, and bespoke bridal trousseau pieces crafted with timeless artistry.">
+  <meta property="twitter:image" content="https://aumjewellers.com/images/hero/indian_hero.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Logo.png">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Aum Jewellers",
+    "image": "https://aumjewellers.com/images/Logo.png",
+    "description": "Discover Aum Jewellers, your trusted destination for exquisite luxury jewellery. Explore our exclusive collections of pure gold, brilliant diamond, elegant silver, and bespoke bridal trousseau pieces crafted with timeless artistry.",
+    "priceRange": "$$$$",
+    "telephone": "",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "OMKAR GARDEN, Samarth Park - Brahma Garden Rd, Omkar Garden, Manik Baug, Anand Nagar",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "postalCode": "411051",
+      "addressCountry": "IN"
+    },
+    "url": "https://aumjewellers.com/"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Coming Soon badge */
+    .coming-soon-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 10;
+      background: rgba(51, 55, 40, 0.88);
+      border: 1px solid rgba(199, 154, 107, 0.55);
+      color: var(--color-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      backdrop-filter: blur(6px);
+      pointer-events: none;
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script src="js/script.js" defer></script>
+  <!-- Google Places API for Reviews -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places" defer></script>
+</head>
+
+<body class="smooth-scroll">
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="images/Logo.png" alt="Aum Jewellers Logo" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="index.html#heritage">Heritage</a></li>
+        <li><a href="index.html#bridal">Bridal</a></li>
+        <li><a href="index.html#custom">Custom</a></li>
+        <li class="mobile-only"><a href="#contact" class="btn btn-primary">Book Consultation</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Book Consultation</a>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg" style="background-image: url('images/hero/indian_hero.png');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal-up">
+      <h2 class="subheading">Welcome to Aum Jewellers</h2>
+      <h1 class="heading-large">Timeless Luxury,<br>Crafted With Trust.</h1>
+      <p class="hero-desc">Discover unparalleled elegance with our exclusive collections of pure gold, brilliant
+        diamond, and modern silver jewellery. From breathtaking bridal trousseau sets to bespoke custom designs, every
+        piece is a masterpiece of timeless artistry.</p>
+
+      <div class="hero-actions">
+        <a href="#collections" class="btn btn-primary">Explore Collections</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- Heritage / Brand Story -->
+  <section class="heritage" id="heritage">
+    <div class="container">
+      <div class="heritage-grid">
+        <div class="heritage-image parallax-img reveal-fade">
+          <img src="images/brand/indian_craftsman.png" alt="Craftsmanship and Heritage">
+        </div>
+        <div class="heritage-text reveal-up">
+          <h2 class="section-heading">A Legacy of<br><em>Elegance</em></h2>
+          <p>For over four decades, Aum Jewellers has stood as a beacon of trust, quality, and unparalleled
+            craftsmanship. We believe that every piece of jewellery should tell a story—a story of heritage, love, and
+            meticulous attention to detail.</p>
+          <p>From the sourcing of the finest diamonds to the delicate shaping of pure gold, our master artisans pour
+            their soul into creating masterpieces that transcend generations.</p>
+          <a href="#custom" class="link-arrow">Discover Our Process</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Collections -->
+  <section class="collections" id="collections">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="eyebrow">Curated For You</span>
+        <h2 class="section-heading text-center">Signature <em>Collections</em></h2>
+      </div>
+
+      <div class="collection-cards">
+        <!-- Gold -->
+        <a href="gold.html" class="card reveal-up" style="transition-delay: 0.1s;">
+          <div class="card-img-wrap">
+            <img src="images/Jewellery/Gold 1.png" alt="Gold Jewellery">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <h3>Pure Gold</h3>
+            <span class="card-link">View Pieces</span>
+          </div>
+        </a>
+
+        <!-- Diamond -->
+        <a href="#diamond" class="card reveal-up" style="transition-delay: 0.2s; cursor: default; pointer-events: none; opacity: 0.85;">
+          <div class="card-img-wrap">
+            <img src="images/collections/diamond_collection_1777533449213.png" alt="Diamond Jewellery">
+            <div class="card-overlay"></div>
+            <span class="coming-soon-badge">Coming Soon</span>
+          </div>
+          <div class="card-content">
+            <h3>Diamond Solitaires</h3>
+            <span class="card-link">Coming Soon</span>
+          </div>
+        </a>
+
+        <!-- Silver -->
+        <a href="silver.html" class="card reveal-up" style="transition-delay: 0.3s;">
+          <div class="card-img-wrap">
+            <img src="images/silver jewellery/gen_9_necklace.png" alt="Modern Silver Collection">
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-content">
+            <h3>Modern Silver</h3>
+            <span class="card-link">View Pieces</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precious Stones -->
+  <section class="stones-section" id="stones">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="eyebrow">Rare & Vibrant</span>
+        <h2 class="section-heading text-center">Precious <em>Stones</em></h2>
+      </div>
+
+      <div class="stones-grid">
+        <!-- Ruby -->
+        <div class="stone-card reveal-up">
+          <img src="images/precious_stones/ring_ruby_gold_1777965623087.png" alt="Ruby Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Ruby</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+
+        <!-- Sapphire -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.1s;">
+          <img src="images/precious_stones/ring_sapphire_silver_1777965636641.png" alt="Sapphire Ring in Silver"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Sapphire</h3>
+            <p>Set in Silver</p>
+          </div>
+        </div>
+
+        <!-- Pearl -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.2s;">
+          <img src="images/precious_stones/ring_pearl_gold_1777965651528.png" alt="Pearl Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Pearl</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+
+        <!-- Emerald -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.3s;">
+          <img src="images/precious_stones/ring_emerald_gold_1777965668063.png" alt="Emerald Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Emerald</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+
+        <!-- Amethyst -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.4s;">
+          <img src="images/precious_stones/ring_amethyst_silver_1777965682876.png" alt="Amethyst Ring in Silver"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Amethyst</h3>
+            <p>Set in Silver</p>
+          </div>
+        </div>
+
+        <!-- Aquamarine -->
+        <div class="stone-card reveal-up">
+          <img src="images/precious_stones/ring_aquamarine_silver_1777965706991.png" alt="Aquamarine Ring in Silver"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Aquamarine</h3>
+            <p>Set in Silver</p>
+          </div>
+        </div>
+
+        <!-- Opal -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.1s;">
+          <img src="images/precious_stones/ring_opal_gold_1777965725902.png" alt="Opal Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Opal</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+
+        <!-- Topaz -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.2s;">
+          <img src="images/precious_stones/ring_topaz_silver_1777965739433.png" alt="Topaz Ring in Silver"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Topaz</h3>
+            <p>Set in Silver</p>
+          </div>
+        </div>
+
+        <!-- Garnet -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.3s;">
+          <img src="images/precious_stones/ring_garnet_gold_1777965756082.png" alt="Garnet Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Garnet</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+
+        <!-- Citrine -->
+        <div class="stone-card reveal-up" style="transition-delay: 0.4s;">
+          <img src="images/precious_stones/ring_citrine_gold_1777965771762.png" alt="Citrine Ring in Gold"
+            class="stone-card-img">
+          <div class="stone-card-info">
+            <h3>Citrine</h3>
+            <p>Set in Gold</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bridal Statement -->
+  <section class="bridal-statement" id="bridal">
+    <div class="bridal-bg parallax-img" style="background-image: url('images/collections/indian_bridal.png');"></div>
+    <div class="bridal-overlay"></div>
+
+    <div class="bridal-content reveal-up">
+      <span class="eyebrow">The Wedding Edit</span>
+      <h2 class="heading-large">Regal Bridal<br>Trousseau</h2>
+      <p>Embrace the grandeur of your special day with our exclusive bridal collections. From intricate Polki and Kundan
+        to breathtaking diamond sets, we adorn you for eternity.</p>
+      <a href="#contact" class="btn btn-primary">Book Bridal Consultation</a>
+    </div>
+  </section>
+
+  <!-- Corporate Giftables -->
+  <section class="heritage" id="corporate"
+    style="background-color: var(--color-bg-olive); padding-top: 10rem; padding-bottom: 10rem;">
+    <div class="container">
+      <div class="heritage-grid">
+        <div class="heritage-text reveal-up">
+          <span class="eyebrow">Exclusive Gifting</span>
+          <h2 class="section-heading">Corporate<br><em>Giftables</em></h2>
+          <p>Elevate your corporate gifting with our bespoke solutions. We specialize in custom-crafted pure silver and
+            gold coins, meticulously embossed with your company's insignia or the Aum Jewellers hallmark.</p>
+          <p>Whether for festive celebrations, milestone achievements, or honoring valued clients, our premium giftables
+            leave a lasting impression of luxury and trust.</p>
+          <a href="#contact" class="link-arrow">Enquire for Bulk Orders</a>
+        </div>
+        <div class="heritage-image parallax-img reveal-fade">
+          <img src="images/brand/corporate_giftables_coins.png" alt="Corporate Giftables - Silver and Gold Coins">
+          <div class="accent-box" style="left: -2rem; right: auto; border-color: rgba(199, 154, 107, 0.3);"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Craftsmanship Grid -->
+  <section class="craftsmanship" id="craftsmanship">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2 class="section-heading text-center">Why Choose <em>Aum</em></h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature reveal-up">
+          <div class="feature-num">01</div>
+          <h3>Bespoke Design</h3>
+          <p>We bring your imagination to life. Work with our designers to craft custom jewellery that is uniquely
+            yours, tailored to your exact specifications.</p>
+        </div>
+        <div class="feature reveal-up" style="transition-delay: 0.1s;">
+          <div class="feature-num">02</div>
+          <h3>Uncompromised Purity</h3>
+          <p>Every piece is certified and hallmarked, ensuring the highest standards of gold purity and diamond grading
+            for your absolute peace of mind.</p>
+        </div>
+        <div class="feature reveal-up" style="transition-delay: 0.2s;">
+          <div class="feature-num">03</div>
+          <h3>Timeless Artistry</h3>
+          <p>Our artisans blend traditional techniques with modern aesthetics, resulting in heirlooms that feel both
+            classic and contemporary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="eyebrow">Client Stories</span>
+        <h2 class="section-heading text-center">Words of <em>Trust</em></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-up">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_dattatray.png" alt="Dattatray Kasale" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>Dattatray Kasale</h3>
+              <span class="testimonial-meta">Local Guide · 12 reviews · 3 photos</span>
+            </div>
+            <div class="google-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
+              </svg>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">2 days ago</span>
+          </div>
+          <p class="testimonial-text">"Had a great experience with AUM Jewelers. Jayantilal Sir offers very competitive
+            rates compared to other jewelers, which makes a big difference while purchasing gold."</p>
+        </div>
+
+        <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_sai.png" alt="SAI SALAWANE" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>SAI SALAWANE</h3>
+              <span class="testimonial-meta">2 reviews</span>
+            </div>
+            <div class="google-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
+              </svg>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">2 months ago</span>
+          </div>
+          <p class="testimonial-text">"It is a good service"</p>
+        </div>
+
+        <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_isha.png" alt="Isha Jain" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>Isha Jain</h3>
+              <span class="testimonial-meta">3 reviews</span>
+            </div>
+            <div class="google-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
+              </svg>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">21 minutes ago</span>
+          </div>
+          <p class="testimonial-text">"Minimalistic customised jewellery with quality service assistance. Truly a humble
+            stop for finest designs."</p>
+        </div>
+
+        <!-- In-person Review 1 -->
+        <div class="testimonial-card reveal-up" style="transition-delay: 0.3s;">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_priya.png" alt="Priya Sharma" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>Priya Sharma</h3>
+              <span class="testimonial-meta">In-Person Client</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">1 week ago</span>
+          </div>
+          <p class="testimonial-text">"Absolutely stunning designs! I visited the showroom and was blown away by the
+            bespoke bridal pieces. Jayantilal Sir was extremely helpful."</p>
+        </div>
+
+        <!-- In-person Review 2 -->
+        <div class="testimonial-card reveal-up" style="transition-delay: 0.4s;">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_rohan.png" alt="Rohan Desai" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>Rohan Desai</h3>
+              <span class="testimonial-meta">In-Person Client</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">3 weeks ago</span>
+          </div>
+          <p class="testimonial-text">"Purchased an engagement ring from here. The craftsmanship is top-notch and the
+            team made the entire custom design process seamless."</p>
+        </div>
+
+        <!-- In-person Review 3 -->
+        <div class="testimonial-card reveal-up" style="transition-delay: 0.5s;">
+          <div class="testimonial-header">
+            <img src="images/avatars/avatar_anjali.png" alt="Anjali Mehta" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h3>Anjali Mehta</h3>
+              <span class="testimonial-meta">In-Person Client</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            ★★★★★ <span class="testimonial-time">1 month ago</span>
+          </div>
+          <p class="testimonial-text">"Their attention to detail is unmatched. Highly recommend Aum Jewellers to anyone
+            looking for premium, authentic jewellery."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box reveal-scale">
+        <div class="cta-text">
+          <span class="eyebrow">Personalized Service</span>
+          <h2>Experience the Luxury in Person</h2>
+          <p>Visit our showroom to explore our exquisite collections or to discuss your custom jewellery requirements.
+          </p>
+          <div class="contact-info-wrapper"
+            style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 3rem;">
+            <div class="contact-details-top"
+              style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+              <p><strong>Phone:</strong> <a href="tel:+919320197788"
+                  style="color: var(--color-champagne); transition: color 0.3s;">+91 9320197788</a></p>
+              <p><strong>Email:</strong> <a href="mailto:Jitujain@live.in"
+                  style="color: var(--color-champagne); transition: color 0.3s;">Jitujain@live.in</a></p>
+              <p><strong>Instagram:</strong> <a href="#"
+                  style="color: var(--color-champagne); transition: color 0.3s;">@aumjewellerspune1</a></p>
+            </div>
+            <div class="contact-address" style="text-align: center; max-width: 800px;">
+              <p><strong>Address:</strong> <a href="https://maps.app.goo.gl/2aUsPQhZeTH4zQPx7" target="_blank"
+                  rel="noopener noreferrer" style="color: var(--color-champagne); transition: color 0.3s;">OMKAR GARDEN,
+                  Samarth Park - Brahma Garden Rd, Omkar Garden, Manik Baug, Anand Nagar, Pune, Maharashtra 411051,
+                  India</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-actions" style="margin-bottom: 3rem;">
+          <a href="tel:+919320197788" class="btn btn-primary">Call to Enquire</a>
+          <a href="https://maps.app.goo.gl/2aUsPQhZeTH4zQPx7" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline">Get Directions</a>
+        </div>
+
+        <div class="map-container"
+          style="width: 100%; height: 350px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(199, 154, 107, 0.2);">
+          <iframe src="https://maps.google.com/maps?q=18.4739908,73.8211241&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/Logo.png" alt="Aum Jewellers Logo" class="footer-logo">
+          <p>Aum Jewellers is your premier destination for luxury gold, diamond, silver, bridal, and bespoke custom
+            jewellery. Crafting masterpieces of timeless elegance and unmatched trust.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="gold.html">Gold</a></li>
+            <li><a href="silver.html">Modern Silver</a></li>
+            <li><a href="#collections">Diamond</a></li>
+            <li><a href="#bridal">Bridal</a></li>
+            <li><a href="#corporate">Corporate Gifting</a></li>
+            <li><a href="#custom">Custom Orders</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="#heritage">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aum Jewellers. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Google Maps API for Automated Reviews -->
+  <!-- IMPORTANT: Replace YOUR_API_KEY_HERE with your actual Google Maps API Key -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&libraries=places&callback=initReviews"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
