@@ -44,8 +44,16 @@ function hideLoginModal() {
 }
 
 function updateUIForLogin(user) {
-  // Hide Login buttons (mobile and desktop)
-  document.querySelectorAll('.login-btn-nav').forEach(el => el.style.display = 'none');
+  // Update Login buttons
+  document.querySelectorAll('.login-btn-nav').forEach(el => {
+    if (el.classList.contains('web-nav-item')) {
+      el.style.display = 'flex';
+      el.href = getDashboardUrl().replace('#/sip', '#/profile');
+      el.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span>`;
+    } else {
+      el.style.display = 'none';
+    }
+  });
   
   // Show Dashboard links & set correct URL
   document.querySelectorAll('.dashboard-link-nav').forEach(el => {
@@ -72,7 +80,13 @@ function updateUIForLogin(user) {
 
 function updateUIForLogout() {
   // Show Login buttons
-  document.querySelectorAll('.login-btn-nav').forEach(el => el.style.display = '');
+  document.querySelectorAll('.login-btn-nav').forEach(el => {
+    el.style.display = '';
+    if (el.classList.contains('web-nav-item')) {
+      el.href = '#';
+      el.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Sign In</span>`;
+    }
+  });
   
   // Keep Dashboard links visible & set correct URL
   document.querySelectorAll('.dashboard-link-nav').forEach(el => {
@@ -132,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
         hideLoginModal();
-        // Redirect to dashboard application
         window.location.href = getDashboardUrl(`email=${encodeURIComponent(email)}`);
       } catch (error) {
         console.error("Auth Error:", error);
@@ -144,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Google Login
+  // Handle Google Login with automatic fallback redirect for mobile browsers
   const googleBtn = document.getElementById('login-google-btn');
   if (googleBtn) {
     googleBtn.addEventListener('click', async (e) => {
@@ -166,8 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = getDashboardUrl();
         }
       } catch (error) {
-        console.error("Google Auth Error:", error);
-        loginError.textContent = 'Google sign in failed. Please try again.';
+        console.warn("Google Popup blocked or domain unauthorized on site. Redirecting directly to app login:", error);
+        hideLoginModal();
+        // Redirect directly to Dashboard App login screen where domain is authorized
+        window.location.href = getDashboardUrl().replace('#/sip', '#/profile');
       }
     });
   }
